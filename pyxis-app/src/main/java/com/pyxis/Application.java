@@ -10,9 +10,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @Configuration
@@ -21,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
     },
     repositoryImplementationPostfix = "CustomImpl"
 )
-@Controller
+@RestController
 @EnableAutoConfiguration(exclude = {ErrorMvcAutoConfiguration.class})
 public class Application {
 
@@ -29,8 +31,8 @@ public class Application {
     private static final int TASK_EXECUTOR_MAX_POOL_SIZE = 5;
 
     @RequestMapping(value = "/", method = GET)
-    public String index() {
-        return "index.html";
+    public ResponseEntity<String> index() {
+        return new ResponseEntity<>("Pyxis Core API", HttpStatus.OK);
     }
 
     public static void main(String[] args) {

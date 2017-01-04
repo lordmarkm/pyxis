@@ -90,7 +90,7 @@ public abstract class PyxisJpaServiceCustomImpl<E extends BaseEntity, D extends 
     public PageInfo<D> rqlSearch(String term, ImmutableMap<String, Path<?>> fieldMapping, Pageable page) {
         Predicate predicate = composePredicate(term, fieldMapping);
         if (null == predicate) {
-            return PageInfo.blank();
+            return toPageInfo(repo.findAll(page));
         }
         return pageInfo(predicate, page);
     }

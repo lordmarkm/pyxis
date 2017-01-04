@@ -3,11 +3,22 @@ package com.pyxis.core.dto;
 import org.joda.time.DateTime;
 import org.springframework.core.style.ToStringCreator;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.pyxis.core.dto.product.ProductInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+
 /**
  *
  * @author Mark Baldwin B. Martinez on 5 Jan 2017
  *
  */
+
+@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "type")
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = ProductInfo.class, name = "product")
+})
 public class BaseInfo {
 
     private Long id;
