@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -13,6 +13,9 @@
   <name>Pyxis</name>
 
   <modules>
+    <module>pyxis-app</module>
+    <module>pyxis-core</module>
+    <module>pyxis-commons</module>
   </modules>
 
   <properties>
@@ -39,10 +42,55 @@
     <commons-collections4.version>4.0</commons-collections4.version>
     <guava.version>18.0</guava.version>
     <poi.version>3.12</poi.version>
+    <rsql.version>1.0.2</rsql.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <!-- Core -->
+      <dependency>
+        <groupId>pyxis</groupId>
+        <artifactId>pyxis-core-util</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>pyxis</groupId>
+        <artifactId>pyxis-core-model</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>pyxis</groupId>
+        <artifactId>pyxis-core-service</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!-- Commons -->
+      <dependency>
+        <groupId>pyxis</groupId>
+        <artifactId>pyxis-commons-model</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>pyxis</groupId>
+        <artifactId>pyxis-commons-dto</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>pyxis</groupId>
+        <artifactId>pyxis-commons-util</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>pyxis</groupId>
+        <artifactId>pyxis-commons-service</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>pyxis</groupId>
+        <artifactId>pyxis-commons-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
       <dependency>
         <groupId>org.jadira.usertype</groupId>
         <artifactId>usertype.core</artifactId>
@@ -102,6 +150,11 @@
         <groupId>io.springfox</groupId>
         <artifactId>springfox-swagger-ui</artifactId>
         <version>${io.springfox}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.tennaito</groupId>
+        <artifactId>rsql-jpa</artifactId>
+        <version>${rsql.version}</version>
       </dependency>
       <dependency>
         <groupId>com.github.spullara.mustache.java</groupId>
