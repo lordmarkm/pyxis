@@ -1,0 +1,41 @@
+# generated files
+bin
+target
+generated
+*.log
+bower_components
+temp
+
+# Eclipse Ignores
+.classpath
+.project
+.settings
+.metadata
+.checkstyle
+*.eclipse.jdt.core.prefs
+
+# IDEA Ignores
+*.iml
+*.ipr
+*.iws
+.idea
+
+# MAC ignores
+.DS_Store
+
+#JRebel Ignores
+rebel.xml
+
+#gedit temp files
+*~
+#File Repository
+rpa-repository
+node
+node_modules
+lib
+/rpa-site-app/rpa-repository-temp/
+/rpa-site-app/com.rpa.model.jobseeker.JobSeeker/
+/rpa-site-app/com.rpa.model.reference.JobClassification2/
+/rpa-site-app/com.rpa.model.reference.JobClassification3/
+/rpa-site-app/com.rpa.model.reference.JobClassification1/
+!PayWayAPI.jar
