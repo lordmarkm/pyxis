@@ -11,7 +11,10 @@ public interface ProductServiceCustom extends PyxisJpaServiceCustom<Product, Pro
 
     @Override
     default ImmutableMap<String, Path<?>> getFieldMapping() {
-        return ImmutableMap.of("name", product.name);
+        return ImmutableMap.of(
+                "id", product.id,
+                "deleted", product.deleted,
+                "name", product.name);
     };
 
 }
