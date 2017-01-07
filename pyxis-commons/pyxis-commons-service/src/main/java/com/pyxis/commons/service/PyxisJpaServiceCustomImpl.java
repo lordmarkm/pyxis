@@ -83,7 +83,7 @@ public abstract class PyxisJpaServiceCustomImpl<E extends BaseEntity, D extends 
     public D deleteInfo(Long id) {
         E entity = repo.findOne(id);
         entity.setDeleted(true);
-        return toDto(entity);
+        return toDto(repo.save(entity));
     }
 
     @Override
