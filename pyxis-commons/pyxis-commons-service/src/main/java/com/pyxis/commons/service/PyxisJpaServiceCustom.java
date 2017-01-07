@@ -35,4 +35,6 @@ public interface PyxisJpaServiceCustom<E extends BaseEntity, D extends BaseInfo>
 
     ImmutableMap<String, Path<?>> getFieldMapping();
 
+    D toDto(BaseEntity savedEntity);
+
 }

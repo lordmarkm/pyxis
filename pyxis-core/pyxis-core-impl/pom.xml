@@ -11,7 +11,7 @@
   <dependencies>
     <dependency>
       <groupId>pyxis</groupId>
-      <artifactId>pyxis-core-service</artifactId>
+      <artifactId>pyxis-core-api</artifactId>
     </dependency>
   </dependencies>
 </project>

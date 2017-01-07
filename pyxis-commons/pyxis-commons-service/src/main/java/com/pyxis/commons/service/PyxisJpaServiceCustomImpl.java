@@ -121,4 +121,10 @@ public abstract class PyxisJpaServiceCustomImpl<E extends BaseEntity, D extends 
         return predicate;
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public D toDto(BaseEntity baseEntity) {
+        return super.toDto((E) baseEntity);
+    }
+
 }

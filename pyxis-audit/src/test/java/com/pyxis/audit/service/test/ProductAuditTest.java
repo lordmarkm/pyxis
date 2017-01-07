@@ -1,5 +1,10 @@
 package com.pyxis.audit.service.test;
 
+import static org.mockito.AdditionalAnswers.returnsFirstArg;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.reset;
+import static org.mockito.Mockito.when;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,15 +17,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.pyxis.audit.config.AuditConfig;
 import com.pyxis.audit.dto.AuditRecordInfo;
 import com.pyxis.audit.model.AuditRecord;
-import com.pyxis.audit.service.AuditService;
-import com.pyxis.audit.service.impl.AuditServiceImpl;
+import com.pyxis.audit.service.AuditRecordService;
+import com.pyxis.audit.service.impl.AuditRecordServiceCustomImpl;
 import com.pyxis.audit.service.test.config.AuditTestConfig;
 import com.pyxis.commons.test.CommonTestConfig;
-import com.pyxis.core.model.product.Bucket;
-import com.pyxis.core.model.product.Product;
-
-import static org.mockito.Mockito.*;
-import static org.mockito.AdditionalAnswers.*;
+import com.pyxis.core.dto.product.BucketInfo;
+import com.pyxis.core.dto.product.ProductInfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
@@ -33,10 +35,10 @@ public class ProductAuditTest {
     private static final Logger LOG = LoggerFactory.getLogger(ProductAuditTest.class);
 
     @Autowired
-    private AuditService auditService;
+    private AuditRecordService auditService;
 
     @Autowired
-    private AuditServiceImpl auditServiceImpl;
+    private AuditRecordServiceCustomImpl auditServiceImpl;
 
     @Before
     public void setup() {
@@ -45,11 +47,11 @@ public class ProductAuditTest {
 
     @Test
     public void testAuditProductNameChange() {
-        Product product1 = new Product();
+        ProductInfo product1 = new ProductInfo();
         product1.setId(1l);
         product1.setName("Lebron");
 
-        Product product2 = new Product();
+        ProductInfo product2 = new ProductInfo();
         product2.setId(1l);
         product2.setName("James");
 
@@ -61,23 +63,40 @@ public class ProductAuditTest {
 
     @Test
     public void testAuditMultiplePropertiesChange() {
-        Bucket bucket1 = new Bucket();
+        BucketInfo bucket1 = new BucketInfo();
         bucket1.setId(1l);
 
-        Bucket bucket2 = new Bucket();
+        BucketInfo bucket2 = new BucketInfo();
         bucket2.setId(2l);
 
-        Product product1 = new Product();
+        ProductInfo product1 = new ProductInfo();
         product1.setId(1l);
         product1.setBucket(bucket1);
 
-        Product product2 = new Product();
+        ProductInfo product2 = new ProductInfo();
         product2.setId(1l);
         product2.setBucket(bucket2);
         product2.setName("Forgot name");
 
         when(auditService.save(any(AuditRecord.class))).then(returnsFirstArg());
         AuditRecordInfo record = auditServiceImpl.audit(product1, product2);
+
+        LOG.info("Record created. record={}", record);
+    }
+
+    @Test
+    public void testPreviouslyNull() {
+        BucketInfo bucket1 = new BucketInfo();
+        bucket1.setId(1l);
+
+        ProductInfo product1 = new ProductInfo();
+        product1.setId(1l);
+        product1.setBucket(bucket1);
+        product1.setName("Lebron");
+
+        when(auditService.save(any(AuditRecord.class))).then(returnsFirstArg());
+
+        AuditRecordInfo record = auditServiceImpl.audit(null, product1);
 
         LOG.info("Record created. record={}", record);
     }

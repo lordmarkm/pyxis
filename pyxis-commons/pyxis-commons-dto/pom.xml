@@ -26,6 +26,13 @@
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
     </dependency>
+
+    <!-- Javerse Annotations -->
+    <dependency>
+      <groupId>org.javers</groupId>
+      <artifactId>javers-core</artifactId>
+      <version>${javers.version}</version>
+    </dependency>
   </dependencies>
 
 </project>

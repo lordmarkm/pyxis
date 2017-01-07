@@ -9,7 +9,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>pyxis-core-model</module>
-    <module>pyxis-core-service</module>
     <module>pyxis-core-impl</module>
+    <module>pyxis-core-api</module>
   </modules>
 </project>

@@ -1,10 +1,12 @@
 package com.pyxis.core.dto;
 
+import org.javers.core.metamodel.annotation.DiffIgnore;
 import org.joda.time.DateTime;
 import org.springframework.core.style.ToStringCreator;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.pyxis.core.dto.product.BrandInfo;
 import com.pyxis.core.dto.product.ProductInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
@@ -17,14 +19,20 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 
 @JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "type")
 @JsonSubTypes({
+    @JsonSubTypes.Type(value = BrandInfo.class, name = "brand"),
     @JsonSubTypes.Type(value = ProductInfo.class, name = "product")
 })
+//TODO configure superclass ignore and remove javers dependency in commons-dto module
 public class BaseInfo {
 
     private Long id;
+    @DiffIgnore
     private String createdBy;
+    @DiffIgnore
     private DateTime createdDate;
+    @DiffIgnore
     private String updatedBy;
+    @DiffIgnore
     private DateTime updatedDate;
     private Boolean deleted = false;
 
@@ -37,7 +45,9 @@ public class BaseInfo {
         return new ToStringCreator(this)
                 .append("id", id)
                 .append("created", createdDate)
+                .append("createdBy", createdBy)
                 .append("updated", createdDate)
+                .append("updatedBy", updatedBy)
                 .append("deleted", deleted);
     }
 

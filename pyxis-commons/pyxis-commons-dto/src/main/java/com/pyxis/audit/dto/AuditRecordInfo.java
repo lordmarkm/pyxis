@@ -6,12 +6,16 @@ import com.pyxis.core.dto.BaseInfo;
 
 public class AuditRecordInfo extends BaseInfo {
 
+    private AuditRecordOperation operation;
+    private String recordType;
     private String oldRecord;
     private String newRecord;
 
     @Override
     public ToStringCreator toStringCreator() {
-        return new ToStringCreator(this)
+        return super.toStringCreator()
+                .append("op", operation)
+                .append("recordType", recordType)
                 .append("old", oldRecord)
                 .append("new", newRecord);
     }
@@ -28,5 +32,20 @@ public class AuditRecordInfo extends BaseInfo {
     public void setNewRecord(String newRecord) {
         this.newRecord = newRecord;
     }
+    public AuditRecordOperation getOperation() {
+        return operation;
+    }
+    public void setOperation(AuditRecordOperation operation) {
+        this.operation = operation;
+    }
+
+    public String getRecordType() {
+        return recordType;
+    }
+
+    public void setRecordType(String recordType) {
+        this.recordType = recordType;
+    }
+
 
 }
