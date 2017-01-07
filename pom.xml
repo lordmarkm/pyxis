@@ -16,6 +16,7 @@
     <module>pyxis-app</module>
     <module>pyxis-core</module>
     <module>pyxis-commons</module>
+    <module>pyxis-audit</module>
   </modules>
 
   <properties>
@@ -88,6 +89,11 @@
       <dependency>
         <groupId>pyxis</groupId>
         <artifactId>pyxis-commons-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>pyxis</groupId>
+        <artifactId>pyxis-commons-test</artifactId>
         <version>${project.version}</version>
       </dependency>
 

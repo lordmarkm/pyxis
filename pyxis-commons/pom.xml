@@ -13,5 +13,6 @@
     <module>pyxis-commons-model</module>
     <module>pyxis-commons-util</module>
     <module>pyxis-commons-service</module>
+    <module>pyxis-commons-test</module>
   </modules>
 </project>
