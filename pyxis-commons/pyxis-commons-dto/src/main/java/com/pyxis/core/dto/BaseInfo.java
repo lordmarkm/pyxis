@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.pyxis.core.dto.crate.CrateTemplateInfo;
 import com.pyxis.core.dto.product.BrandInfo;
 import com.pyxis.core.dto.product.BucketInfo;
 import com.pyxis.core.dto.product.CategoryInfo;
@@ -24,7 +25,8 @@ import com.pyxis.core.dto.product.ProductInfo;
     @JsonSubTypes.Type(value = BrandInfo.class, name = "brand"),
     @JsonSubTypes.Type(value = ProductInfo.class, name = "product"),
     @JsonSubTypes.Type(value = CategoryInfo.class, name = "category"),
-    @JsonSubTypes.Type(value = BucketInfo.class, name = "bucket")
+    @JsonSubTypes.Type(value = BucketInfo.class, name = "bucket"),
+    @JsonSubTypes.Type(value = CrateTemplateInfo.class, name = "crate_template")
 })
 //TODO configure superclass ignore and remove javers dependency in commons-dto module
 public class BaseInfo {
