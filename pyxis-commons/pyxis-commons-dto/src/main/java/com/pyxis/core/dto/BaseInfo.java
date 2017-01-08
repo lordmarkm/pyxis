@@ -6,10 +6,11 @@ import org.springframework.core.style.ToStringCreator;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.pyxis.core.dto.product.BrandInfo;
-import com.pyxis.core.dto.product.ProductInfo;
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.pyxis.core.dto.product.BrandInfo;
+import com.pyxis.core.dto.product.CategoryInfo;
+import com.pyxis.core.dto.product.ProductInfo;
 
 /**
  *
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 @JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "type")
 @JsonSubTypes({
     @JsonSubTypes.Type(value = BrandInfo.class, name = "brand"),
-    @JsonSubTypes.Type(value = ProductInfo.class, name = "product")
+    @JsonSubTypes.Type(value = ProductInfo.class, name = "product"),
+    @JsonSubTypes.Type(value = CategoryInfo.class, name = "category")
 })
 //TODO configure superclass ignore and remove javers dependency in commons-dto module
 public class BaseInfo {

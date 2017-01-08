@@ -22,7 +22,7 @@ import com.pyxis.commons.util.AuthenticationUtil;
 public class BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "created_by", updatable = false, length = 250)
