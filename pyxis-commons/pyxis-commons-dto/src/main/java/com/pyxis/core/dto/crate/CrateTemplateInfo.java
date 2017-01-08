@@ -12,6 +12,10 @@ public class CrateTemplateInfo extends BaseInfo {
     private Month month;
     private List<ProductInfo> products;
 
+    @Override
+    public String getType() {
+        return "crate_template";
+    }
     public int getYear() {
         return year;
     }

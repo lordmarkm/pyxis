@@ -6,6 +6,11 @@ public class CategoryInfo extends BaseInfo {
 
     private String name;
 
+    @Override
+    public String getType() {
+        return "category";
+    }
+
     public String getName() {
         return name;
     }

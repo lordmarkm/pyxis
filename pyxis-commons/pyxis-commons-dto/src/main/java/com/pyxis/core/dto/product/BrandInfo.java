@@ -6,6 +6,11 @@ public class BrandInfo extends BaseInfo {
 
     private String name;
 
+    @Override
+    public String getType() {
+        return "brand";
+    }
+
     public String getName() {
         return name;
     }

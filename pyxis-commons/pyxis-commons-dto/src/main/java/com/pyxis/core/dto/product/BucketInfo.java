@@ -6,6 +6,11 @@ public class BucketInfo extends BaseInfo {
 
     private String name;
 
+    @Override
+    public String getType() {
+        return "bucket";
+    }
+
     public String getName() {
         return name;
     }

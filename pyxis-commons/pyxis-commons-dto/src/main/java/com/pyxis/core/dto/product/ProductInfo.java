@@ -17,6 +17,11 @@ public class ProductInfo extends BaseInfo {
     private CategoryInfo category;
 
     @Override
+    public String getType() {
+        return "product";
+    }
+
+    @Override
     public ToStringCreator toStringCreator() {
         return super.toStringCreator()
                 .append("name", name)

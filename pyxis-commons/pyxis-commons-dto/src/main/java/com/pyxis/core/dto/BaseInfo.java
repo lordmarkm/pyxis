@@ -29,7 +29,7 @@ import com.pyxis.core.dto.product.ProductInfo;
     @JsonSubTypes.Type(value = CrateTemplateInfo.class, name = "crate_template")
 })
 //TODO configure superclass ignore and remove javers dependency in commons-dto module
-public class BaseInfo {
+public abstract class BaseInfo {
 
     private Long id;
     @DiffIgnore
@@ -41,6 +41,8 @@ public class BaseInfo {
     @DiffIgnore
     private DateTime updatedDate;
     private Boolean deleted = false;
+
+    public abstract String getType();
 
     @Override
     public final String toString() {

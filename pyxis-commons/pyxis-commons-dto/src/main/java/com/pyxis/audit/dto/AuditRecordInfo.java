@@ -47,5 +47,10 @@ public class AuditRecordInfo extends BaseInfo {
         this.recordType = recordType;
     }
 
+    @Override
+    public String getType() {
+        return "audit_info";
+    }
+
 
 }
