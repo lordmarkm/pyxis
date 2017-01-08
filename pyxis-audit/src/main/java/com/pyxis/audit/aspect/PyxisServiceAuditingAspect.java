@@ -4,7 +4,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.dozer.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +20,6 @@ import com.pyxis.core.dto.BaseInfo;
 public class PyxisServiceAuditingAspect {
 
     private static final Logger LOG = LoggerFactory.getLogger(PyxisServiceAuditingAspect.class);
-
-    @Autowired
-    private Mapper mapper;
 
     @Autowired
     private AuditRecordService auditRecordService;
