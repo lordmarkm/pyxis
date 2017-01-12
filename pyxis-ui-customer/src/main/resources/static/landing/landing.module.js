@@ -9,7 +9,7 @@ define([
 
       $stateProvider.state('default.landing', {
         url: '',
-        templateUrl: 'landing/view/homepage-two.html',
+        templateUrl: 'landing/view/landing.html',
         controller: LandingController
       });
 
