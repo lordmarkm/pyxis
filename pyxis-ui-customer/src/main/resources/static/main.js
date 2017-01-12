@@ -8,14 +8,14 @@ require.config({
     'angular-ui-select': 'lib/angular-ui-select/dist/select.min',
     'angular-sanitize': 'lib/angular-sanitize/angular-sanitize.min',
     'angular-bootstrap': 'lib/angular-bootstrap/ui-bootstrap-tpls.min',
-    'bootstrap': 'lib/bootstrap/dist/js/bootstrap.min',
-    'jquery': 'lib/jquery/dist/jquery.min',
+    //'bootstrap': 'lib/bootstrap/dist/js/bootstrap.min',
+    //'jquery': 'lib/jquery/dist/jquery.min',
     'moment': 'lib/moment/min/moment.min',
     'angular-moment': 'lib/angular-moment/angular-moment.min',
     'angular-busy': 'lib/angular-busy/dist/angular-busy.min',
   },
   shim: {
-    'angular': {exports: 'angular', deps: ['jquery']},
+    'angular': {exports: 'angular', deps: []},
     'angular-animate': {deps: ['angular']},
     'angular-ui-router': {deps: ['angular']},
     'angular-resource': {deps: ['angular']},
@@ -25,7 +25,7 @@ require.config({
     'angular-bootstrap': {deps: ['angular']},
     'angular-moment': {deps: ['angular', 'moment']},
     'angular-busy': {deps: ['angular']},
-    'bootstrap': {deps: ['jquery']}
+    //'bootstrap': {deps: ['jquery']}
   }
 });
 
@@ -40,8 +40,8 @@ require([
          'angular-bootstrap',
          'angular-moment',
          'angular-busy',
-         'jquery',
-         'bootstrap',
+         //'jquery',
+         //'bootstrap',
          'moment',
          'core/core.module.js',
          'landing/landing.module.js'
