@@ -192,6 +192,13 @@
 </div>
 
 <script type="text/javascript">
+//Nav menu slide out
+$('.menu-section').on('click', function() {
+    $(this).find('.fa').toggleClass('fa-bars').toggleClass('fa-times');
+    $('.navigation').slideToggle();
+});
+
+//Nav selects 
 if ($(".select").length) {
     $(".select").selectbox();
 }

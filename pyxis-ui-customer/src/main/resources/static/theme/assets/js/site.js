@@ -199,10 +199,10 @@
 			e.stopPropagation();
 			$('.item-block').slideToggle();
 		});
-		$('.menu-section').on('click', function() {
-			$(this).find('.fa').toggleClass('fa-bars').toggleClass('fa-times');
-			$('.navigation').slideToggle();
-		});
+//		$('.menu-section').on('click', function() {
+//			$(this).find('.fa').toggleClass('fa-bars').toggleClass('fa-times');
+//			$('.navigation').slideToggle();
+//		});
 		if (jQuery("#countdown").length) {
 			//==========countdown=======
 			jQuery("#countdown").countdown({
