@@ -199,7 +199,7 @@
 			e.stopPropagation();
 			$('.item-block').slideToggle();
 		});
-		$('body').on('click', '.menu-section', function() {
+		$('.menu-section').on('click', function() {
 			$(this).find('.fa').toggleClass('fa-bars').toggleClass('fa-times');
 			$('.navigation').slideToggle();
 		});
