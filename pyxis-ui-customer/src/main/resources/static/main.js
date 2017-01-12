@@ -9,13 +9,19 @@ require.config({
     'angular-sanitize': 'lib/angular-sanitize/angular-sanitize.min',
     'angular-bootstrap': 'lib/angular-bootstrap/ui-bootstrap-tpls.min',
     //'bootstrap': 'lib/bootstrap/dist/js/bootstrap.min',
+    'bootstrap': 'theme/assets/js/bootstrap',
     //'jquery': 'lib/jquery/dist/jquery.min',
+    'jquery': 'theme/assets/js/jquery-1.12.0.min',
     'moment': 'lib/moment/min/moment.min',
     'angular-moment': 'lib/angular-moment/angular-moment.min',
     'angular-busy': 'lib/angular-busy/dist/angular-busy.min',
+
+    //theme dependencies follow
+    'jquery-selectbox': 'theme/assets/js/jquery.selectbox-0.2',
+    'jquery-fancybox': 'theme/assets/js/jquery.fancybox'
   },
   shim: {
-    'angular': {exports: 'angular', deps: []},
+    'angular': {exports: 'angular', deps: ['jquery']},
     'angular-animate': {deps: ['angular']},
     'angular-ui-router': {deps: ['angular']},
     'angular-resource': {deps: ['angular']},
@@ -25,7 +31,9 @@ require.config({
     'angular-bootstrap': {deps: ['angular']},
     'angular-moment': {deps: ['angular', 'moment']},
     'angular-busy': {deps: ['angular']},
-    //'bootstrap': {deps: ['jquery']}
+    'bootstrap': {deps: ['jquery']},
+    'jquery-selectbox': {deps: ['jquery']},
+    'jquery-fancybox': {deps: ['jquery']}
   }
 });
 
@@ -40,9 +48,15 @@ require([
          'angular-bootstrap',
          'angular-moment',
          'angular-busy',
-         //'jquery',
-         //'bootstrap',
+         'jquery',
+         'bootstrap',
          'moment',
+
+         //theme dependencies
+         'jquery-selectbox',
+         'jquery-fancybox',
+
+         //Project JS
          'core/core.module.js',
          'landing/landing.module.js'
   ], function (angular) {
