@@ -8,7 +8,6 @@ require.config({
     'angular-ui-select': 'lib/angular-ui-select/dist/select.min',
     'angular-sanitize': 'lib/angular-sanitize/angular-sanitize.min',
     'angular-bootstrap': 'lib/angular-bootstrap/ui-bootstrap-tpls.min',
-    'toaster': 'lib/angularjs-toaster/toaster.min',
     'bootstrap': 'lib/bootstrap/dist/js/bootstrap.min',
     'jquery': 'lib/jquery/dist/jquery.min',
     'moment': 'lib/moment/min/moment.min',
@@ -26,7 +25,6 @@ require.config({
     'angular-bootstrap': {deps: ['angular']},
     'angular-moment': {deps: ['angular', 'moment']},
     'angular-busy': {deps: ['angular']},
-    'toaster': {deps: ['angular']},
     'bootstrap': {deps: ['jquery']}
   }
 });
@@ -42,10 +40,11 @@ require([
          'angular-bootstrap',
          'angular-moment',
          'angular-busy',
-         'toaster',
          'jquery',
          'bootstrap',
          'moment',
+         'core/core.module.js',
+         'landing/landing.module.js'
   ], function (angular) {
     angular.element().ready(function () {
       angular.bootstrap(document, [
@@ -56,9 +55,10 @@ require([
        'ui.select',
        'ngSanitize',
        'ui.bootstrap',
-       'toaster',
        'cgBusy',
-       'angularMoment'
+       'angularMoment',
+       'core.module',
+       'landing.module'
     ]);
   });
 });
