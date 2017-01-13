@@ -1,7 +1,7 @@
 define([
    'angular',
-   'landing/controller/ProductRootController',
-   'landing/controller/ProductListController'
+   'product/controller/ProductRootController',
+   'product/controller/ProductListController'
 ], function (angular, ProductRootController, ProductListController) {
 
   console.debug('Configuring product.module');

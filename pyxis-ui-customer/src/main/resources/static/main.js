@@ -85,7 +85,8 @@ require([
 
          //Project JS
          'core/core.module.js',
-         'landing/landing.module.js'
+         'landing/landing.module.js',
+         'product/product.module.js'
   ], function (angular) {
     angular.element().ready(function () {
       angular.bootstrap(document, [
@@ -99,7 +100,8 @@ require([
        'cgBusy',
        'angularMoment',
        'core.module',
-       'landing.module'
+       'landing.module',
+       'product.module'
     ]);
   });
 });
