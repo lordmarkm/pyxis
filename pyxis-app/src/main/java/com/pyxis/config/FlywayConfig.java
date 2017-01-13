@@ -10,7 +10,20 @@ import org.springframework.context.annotation.Profile;
 public class FlywayConfig {
 
     @Bean
-    @Profile("purge")
+    @Profile("flyway-repair")
+    public FlywayMigrationStrategy repairMigrationStrategy() {
+        FlywayMigrationStrategy strategy = new FlywayMigrationStrategy() {
+            @Override
+            public void migrate(Flyway flyway) {
+                flyway.repair();
+                flyway.migrate();
+            }
+        };
+        return strategy;
+    }
+
+    @Bean
+    @Profile("flyway-clean")
     public FlywayMigrationStrategy purgeMigrationStrategy() {
         FlywayMigrationStrategy strategy = new FlywayMigrationStrategy() {
             @Override
