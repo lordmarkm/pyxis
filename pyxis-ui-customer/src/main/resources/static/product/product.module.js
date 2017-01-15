@@ -9,7 +9,7 @@ define([
     .config(['$stateProvider', function ($stateProvider) {
 
       $stateProvider.state('default.product', {
-        url: '/product',
+        url: 'product',
         template: '<ui-view></ui-view>',
         controller: ProductRootController,
         abstract: true
