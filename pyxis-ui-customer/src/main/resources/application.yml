@@ -5,3 +5,10 @@ endpoints:
   shutdown:
     sensitive: false
     enabled: true
+
+#https://github.com/UW-Madison-DoIT/rest-proxy/blob/master/rest-proxy-boot/src/main/resources/application.properties.example
+pyxis-proxy:
+  uri: http://localhost:8081
+  username:
+  password:
+  attributes:
