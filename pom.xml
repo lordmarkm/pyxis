@@ -18,6 +18,7 @@
     <module>pyxis-commons</module>
     <module>pyxis-audit</module>
     <module>pyxis-ui-customer</module>
+    <module>pyxis-security</module>
   </modules>
 
   <properties>
