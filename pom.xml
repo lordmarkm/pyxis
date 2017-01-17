@@ -106,6 +106,13 @@
         <version>${project.version}</version>
       </dependency>
 
+      <!-- Security -->
+      <dependency>
+        <groupId>pyxis</groupId>
+        <artifactId>pyxis-security</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
       <dependency>
         <groupId>org.jadira.usertype</groupId>
         <artifactId>usertype.core</artifactId>

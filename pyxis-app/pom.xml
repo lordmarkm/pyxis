@@ -19,6 +19,10 @@
       <groupId>pyxis</groupId>
       <artifactId>pyxis-audit</artifactId>
     </dependency>
+    <dependency>
+      <groupId>pyxis</groupId>
+      <artifactId>pyxis-security</artifactId>
+    </dependency>
 
     <!-- Commons -->
     <dependency>
